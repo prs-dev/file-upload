@@ -1,6 +1,6 @@
-import React from 'react'
-import Form from './Form'
-import Display from './Display'
+
+import Form from './components/Form'
+import Display from './components/Display'
 
 const App = () => {
   return (

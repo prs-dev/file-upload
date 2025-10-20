@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "client": "npm run dev --prefix client",
-    "dev": "nodemon server/index.js"
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
+    "mongoose": "^8.19.1",
     "multer": "^2.0.2"
   },
   "devDependencies": {
