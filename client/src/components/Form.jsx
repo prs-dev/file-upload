@@ -1,8 +1,8 @@
 import { useState } from "react"
-const Form = () => {
+const Form = ({loading, setLoading}) => {
     const [state, setState] = useState(null)
-
     const handleSubmit = async(e) => {
+        setLoading(true)
         e.preventDefault()
         const formData = new FormData()
         formData.append('photo', state)
@@ -13,7 +13,8 @@ const Form = () => {
         if(res.ok) {
             const data = await res.json()
             console.log(data)
-        }
+        } 
+        setLoading(false)
         console.log("formData", formData)
     }
 

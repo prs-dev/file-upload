@@ -1,12 +1,14 @@
 
 import Form from './components/Form'
 import Display from './components/Display'
+import { useState } from 'react'
 
 const App = () => {
+  const [loading, setLoading] = useState(false)
   return (
     <div>
-      <Form />
-      <Display />
+      <Form {...{loading, setLoading}}/>
+      <Display {...{loading, setLoading}}/>
     </div>
   )
 }

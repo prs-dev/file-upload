@@ -1,5 +1,15 @@
 const path = require('path')
 const fs = require('fs')
+const Photo = require("../models/Photo")
+
+const allPhotos = async(req, res) => {
+    try {
+        const photos = await Photo.find({})
+        res.status(200).json({success: true, photos})
+    } catch (error) {
+        res.status(500).json({success: false, message: error.message})
+    }
+}
 
 const photoSend = (req, res) => {
     const uploadDir = path.join(__dirname, "..", '/uploads')
@@ -13,5 +23,6 @@ const photoSend = (req, res) => {
 // console.log(__dirname)
 
 module.exports = {
-    photoSend
+    photoSend,
+    allPhotos
 }

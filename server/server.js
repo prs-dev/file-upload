@@ -1,7 +1,8 @@
 const express = require('express')
-
+const mongoose = require('mongoose')
 const path = require('path')
 const fs = require('fs')
+require('dotenv').config()
 
 const uploadRoutes = require("./routes/upload.routes")
 
@@ -22,6 +23,14 @@ app.get("/", (req, res) => {
 // app.post("/api/upload", upload.single('photo'), )
 
 // app.get('/api/photos', )
+
+mongoose.connect(process.env.MONGO)
+.then(() => {
+    console.log('db connected')
+})
+.catch(err => {
+    console.log(err)
+})
 
 app.listen(5000, () => {
     console.log("server listening at port 5000")
