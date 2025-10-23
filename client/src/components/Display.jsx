@@ -22,9 +22,16 @@ const Display = ({loading, setLoading}) => {
       <div>
         <h1>Photos</h1>
       </div>
-      <div style={{display: "flex", gap: "20px"}}>
+      <div style={{display: "flex", gap: "20px", flexWrap: "wrap"}}>
       {state?.map(photo => (
-          <img style={{height: "100px", width: "100px"}} src={`http://localhost:5000/${photo.filename}`} alt="" />
+          <div>
+            <div>
+              <img style={{height: "100px", width: "100px"}} src={`http://localhost:5000/${photo.filename}`} alt="" />
+            </div>
+            <div>
+              <h2>{photo?.caption}</h2>
+            </div>
+          </div>
         ))}
         </div>
     </div>
